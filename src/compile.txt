@@ -1,0 +1,6 @@
+#silicon
+g++ -o change_niceness_arm64 change_niceness.cpp -arch arm64 -stdlib=libc++ -mmacosx-version-min=11.0
+#intel (lion or higher)
+g++ -stdlib=libc++ -mmacosx-version-min=10.7 -o change_niceness_intel change_niceness.cpp
+#snow leopard
+g++ -stdlib=libstdc++ -mmacosx-version-min=10.6 -o change_niceness_snowleopard change_niceness.cpp
