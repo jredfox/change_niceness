@@ -11,9 +11,9 @@ sudo rm -f "$link"
 #Install Executables
 sudo mkdir -p "$install_dir"
 sudo cp -f "$SCRIPTPATH"/*_* "$install_dir/"
-sudo xattr -r -d com.apple.quarantine "$install_dir"
 sudo chown -R root:wheel "$install_dir"
 sudo chmod 755 "$install_dir"/change_niceness*
+sudo xattr -r -d com.apple.quarantine "$install_dir"
 sudo chmod u+s "$install_dir"/change_niceness*
 
 #Create Sym Link to correct change_niceness Executable
