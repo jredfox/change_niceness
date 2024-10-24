@@ -28,3 +28,16 @@ else
 		sudo ln -s "$install_dir/change_niceness_snowleopard" "$link"
 	fi
 fi
+
+#modified from https://stackoverflow.com/a/40853418
+sudo sed -i bak "/^127\.0\.0\.1/s/.*/127.0.0.1 localhost $(hostname)/" /etc/hosts
+sudo sed -i bak "/^::1/s/.*/::1 localhost $(hostname)/" /etc/hosts
+echo "Reboot is Required for all Changes to Take Effect"
+
+# Uncomment out this code below if you want to install change_niceness without requiring a reboot.
+# Note: this will reboot your wifi which is why We want users to reboot when they can and are not downloading anything
+
+#sudo ifconfig en0 down
+#sudo dscacheutil -flushcache
+#sudo killall -HUP mDNSResponder
+#sudo ifconfig en0 up
